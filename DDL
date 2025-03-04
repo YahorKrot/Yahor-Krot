@@ -1,0 +1,123 @@
+CREATE TABLE kategorie (
+nazwa VARCHAR2(6) NOT NULL,
+CONSTRAINT kategorie_pk PRIMARY KEY (nazwa)
+);
+
+CREATE TABLE filmy (
+id_filmu INTEGER GENERATED ALWAYS AS IDENTITY,
+data_premiery DATE NOT NULL,
+nazwa VARCHAR2(100) NOT NULL,
+budzet INTEGER NOT NULL,
+boxoffice NUMBER(10) NOT NULL,
+f_kat VARCHAR2(6) NOT NULL,
+CONSTRAINT filmy_pk PRIMARY KEY (id_filmu),
+CONSTRAINT filmy_kategorie_fk FOREIGN KEY (f_kat) REFERENCES kategorie (nazwa)
+);
+
+
+CREATE TABLE gatunki (
+nazwa VARCHAR2(30) NOT NULL,
+CONSTRAINT gatunki_pk PRIMARY KEY (nazwa)
+);
+
+CREATE TABLE kompozytorzy (
+id_kom NUMBER(6) GENERATED ALWAYS AS IDENTITY,
+imie VARCHAR2(20) NOT NULL,
+nazwisko VARCHAR2(20) NOT NULL,
+k_id_filmu INTEGER,
+CONSTRAINT kompozytorzy_pk PRIMARY KEY (id_kom),
+CONSTRAINT kompozytorzy_filmy_fk FOREIGN KEY (k_id_filmu) REFERENCES filmy (id_filmu)
+);
+
+CREATE TABLE oceny (
+id_oceny INTEGER GENERATED ALWAYS AS IDENTITY,
+imdb NUMBER(2, 1) NULL,
+rot_tom NUMBER(2, 1) NULL,
+metacr NUMBER(2, 1) NULL,
+CONSTRAINT oceny_pk PRIMARY KEY (id_oceny),
+CONSTRAINT oceny_filmy_fk FOREIGN KEY (id_oceny) REFERENCES filmy (id_filmu)
+);
+
+CREATE TABLE producenci (
+id_prod NUMBER(6) GENERATED ALWAYS AS IDENTITY,
+imie     VARCHAR2(20) NOT NULL,
+nazwisko VARCHAR2(20) NOT NULL,
+CONSTRAINT producenci_pk PRIMARY KEY (id_prod)
+);
+
+CREATE TABLE rezyserzy (
+id_rez NUMBER(6) GENERATED ALWAYS AS IDENTITY,
+imie VARCHAR2(20) NOT NULL,
+nazwisko VARCHAR2(20) NOT NULL,
+CONSTRAINT rezysery_pk PRIMARY KEY (id_rez)
+);
+
+CREATE TABLE scenarzysci (
+id_scen NUMBER(6) GENERATED ALWAYS AS IDENTITY,
+imie VARCHAR2(20) NOT NULL,
+nazwisko VARCHAR2(20) NOT NULL,
+CONSTRAINT scenarzysci_pk PRIMARY KEY (id_scen)
+);
+
+CREATE TABLE aktorzy (
+id_akt INTEGER GENERATED ALWAYS AS IDENTITY,
+imie VARCHAR2(20) NOT NULL,
+nazwisko VARCHAR2(20) NOT NULL,
+plec CHAR(1) NOT NULL,
+CONSTRAINT aktorzy_pk PRIMARY KEY (id_akt)
+);
+
+CREATE TABLE uczelni (
+nazwa VARCHAR2(100) NOT NULL,
+adres VARCHAR2(100) NOT NULL,
+CONSTRAINT uczelni_pk PRIMARY KEY (nazwa)
+);
+
+CREATE TABLE wyksztalcenia (
+czy_ma_wyksztalcenie_aktorskie CHAR(1) NOT NULL,
+w_akt INTEGER NOT NULL,
+nazwa_uczelni VARCHAR2(100) NOT NULL,
+CONSTRAINT wyksztalcenia_pk PRIMARY KEY (w_akt, nazwa_uczelni),
+CONSTRAINT wyksztalcenia_aktorzy_fk FOREIGN KEY (w_akt) REFERENCES aktorzy (id_akt),
+CONSTRAINT wyksztalcenia_uczelni_fk FOREIGN KEY (nazwa_uczelni) REFERENCES uczelni (nazwa)
+);
+
+CREATE TABLE film_aktor (
+fa_id_filmu INTEGER NOT NULL,
+fa_id_akt NUMBER(6) NOT NULL,
+CONSTRAINT film_aktor_pk PRIMARY KEY (fa_id_filmu, fa_id_akt),
+CONSTRAINT film_aktor_aktorzy_fk FOREIGN KEY (fa_id_akt) REFERENCES aktorzy (id_akt),
+CONSTRAINT film_aktor_filmy_fk FOREIGN KEY (fa_id_filmu) REFERENCES filmy (id_filmu)
+);
+
+CREATE TABLE film_gatunek (
+fg_id_filmu INTEGER NOT NULL,
+fg_nazwa VARCHAR2(30) NOT NULL,
+CONSTRAINT film_gatunek_pk PRIMARY KEY (fg_id_filmu, fg_nazwa),
+CONSTRAINT film_gatunek_filmy_fk FOREIGN KEY (fg_id_filmu) REFERENCES filmy (id_filmu),
+CONSTRAINT film_gatunek_gatunki_fk FOREIGN KEY (fg_nazwa) REFERENCES gatunki (nazwa)
+);
+
+CREATE TABLE film_producent (
+fp_id_filmu INTEGER NOT NULL,
+fp_id_prod NUMBER(6) NOT NULL,
+CONSTRAINT film_producent_pk PRIMARY KEY (fp_id_filmu, fp_id_prod),
+CONSTRAINT film_producent_filmy_fk FOREIGN KEY (fp_id_filmu) REFERENCES filmy (id_filmu),
+CONSTRAINT film_producent_producenci_fk FOREIGN KEY (fp_id_prod) REFERENCES producenci (id_prod)
+);
+
+CREATE TABLE film_rezyser (
+fr_id_filmu INTEGER NOT NULL,
+fr_id_rez NUMBER(6) NOT NULL,
+CONSTRAINT film_rezyser_pk PRIMARY KEY (fr_id_filmu, fr_id_rez),
+CONSTRAINT film_rezyser_filmy_fk FOREIGN KEY (fr_id_filmu) REFERENCES filmy (id_filmu),
+CONSTRAINT film_rezyser_rezyserzy_fk FOREIGN KEY (fr_id_rez) REFERENCES rezyserzy (id_rez)
+);
+
+CREATE TABLE film_scenarzysta (
+fs_id_filmu INTEGER NOT NULL,
+fs_id_scen NUMBER(6) NOT NULL,
+CONSTRAINT film_scenarzysta_pk PRIMARY KEY (fs_id_filmu, fs_id_scen),
+CONSTRAINT film_scenarzysta_filmy_fk FOREIGN KEY (fs_id_filmu) REFERENCES filmy (id_filmu),
+CONSTRAINT film_scenarzysta_scenarzysci_fk FOREIGN KEY (fs_id_scen) REFERENCES scenarzysci (id_scen)
+);
