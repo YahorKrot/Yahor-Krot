@@ -1,0 +1,496 @@
+--kategorie
+INSERT INTO kategorie (nazwa) VALUES ('R');
+INSERT INTO kategorie (nazwa) VALUES ('PG');
+
+--gatunki
+INSERT INTO gatunki (nazwa) VALUES ('dramat');
+INSERT INTO gatunki (nazwa) VALUES ('kryminał');
+INSERT INTO gatunki (nazwa) VALUES ('thriller');
+INSERT INTO gatunki (nazwa) VALUES ('detektyw');
+INSERT INTO gatunki (nazwa) VALUES ('kreskówka');
+INSERT INTO gatunki (nazwa) VALUES ('komedia');
+INSERT INTO gatunki (nazwa) VALUES ('familijny');
+INSERT INTO gatunki (nazwa) VALUES ('muzyczny');
+INSERT INTO gatunki (nazwa) VALUES ('fantasy');
+INSERT INTO gatunki (nazwa) VALUES ('melodramat');
+INSERT INTO gatunki (nazwa) VALUES ('wojskowy');
+INSERT INTO gatunki (nazwa) VALUES ('biografia');
+
+-- Godfather
+INSERT INTO filmy (data_premiery, nazwa, budzet, boxoffice, f_kat) 
+VALUES (TO_DATE('14-03-1972', 'DD-MM-YYYY'), 'Godfather', 6000000, 243862778, 'R');
+
+INSERT INTO rezyserzy (imie, nazwisko) VALUES ('Francis Ford', 'Coppola');
+
+INSERT INTO scenarzysci (imie, nazwisko) VALUES ('Mario', 'Puzo');
+INSERT INTO scenarzysci (imie, nazwisko) VALUES ('Francis Ford', 'Coppola');
+
+INSERT INTO producenci (imie, nazwisko) VALUES ('Gray', 'Frederickson');
+
+INSERT INTO kompozytorzy (imie, nazwisko, k_id_filmu) VALUES ('Nino', 'Rota', 1);
+
+INSERT INTO oceny (imdb, rot_tom, metacr) VALUES (9.2, 9.8, 9.3);
+
+INSERT INTO aktorzy (imie, nazwisko, plec) VALUES ('Marlon', 'Brando', 'M');
+INSERT INTO aktorzy (imie, nazwisko, plec) VALUES ('Al', 'Pacino', 'M');
+INSERT INTO aktorzy (imie, nazwisko, plec) VALUES ('Robert', 'Duvall', 'M');
+
+INSERT INTO uczelni (nazwa, adres) VALUES ('Nowojorska Szkoła Dramatyczna', '55 West 13th Street, New York');
+INSERT INTO uczelni (nazwa, adres) VALUES ('Studio aktorskie', '432 West 44th Street, New York');
+INSERT INTO uczelni (nazwa, adres) VALUES ('Szkoła teatralna Neighborhood Playhouse', '340 East 54th Street, New York');
+
+INSERT INTO wyksztalcenia (czy_ma_wyksztalcenie_aktorskie, w_akt, nazwa_uczelni) VALUES ('T', 1, 'Nowojorska Szkoła Dramatyczna');
+INSERT INTO wyksztalcenia (czy_ma_wyksztalcenie_aktorskie, w_akt, nazwa_uczelni) VALUES ('T', 2, 'Studio aktorskie');
+INSERT INTO wyksztalcenia (czy_ma_wyksztalcenie_aktorskie, w_akt, nazwa_uczelni) VALUES ('T', 3, 'Szkoła teatralna Neighborhood Playhouse');
+
+INSERT INTO film_aktor (fa_id_filmu, fa_id_akt) VALUES (1, 1);
+INSERT INTO film_aktor (fa_id_filmu, fa_id_akt) VALUES (1, 2);
+INSERT INTO film_aktor (fa_id_filmu, fa_id_akt) VALUES (1, 3);
+
+INSERT INTO film_producent (fp_id_filmu, fp_id_prod) VALUES (1, 1);
+
+INSERT INTO film_rezyser (fr_id_filmu, fr_id_rez) VALUES (1, 1);
+
+INSERT INTO film_scenarzysta (fs_id_filmu, fs_id_scen) VALUES (1, 1);
+INSERT INTO film_scenarzysta (fs_id_filmu, fs_id_scen) VALUES (1, 2);
+
+
+
+
+-- Seven
+INSERT INTO filmy (data_premiery, nazwa, budzet, boxoffice, f_kat) 
+VALUES (TO_DATE('15-09-1995', 'DD-MM-YYYY'), 'Seven', 33000000, 327311859, 'R');
+
+INSERT INTO rezyserzy (imie, nazwisko) VALUES ('David', 'Fincher');
+
+INSERT INTO scenarzysci (imie, nazwisko) VALUES ('Andrew Kevin', 'Walker');
+
+INSERT INTO producenci (imie, nazwisko) VALUES ('Stephen', 'Brown');
+
+INSERT INTO kompozytorzy (imie, nazwisko, k_id_filmu) VALUES ('Howard', 'Shore', 2);
+
+INSERT INTO oceny (imdb, rot_tom, metacr) VALUES (8.6, 9.5, 8.7);
+
+INSERT INTO aktorzy (imie, nazwisko, plec) VALUES ('Brad', 'Pitt', 'M');
+INSERT INTO aktorzy (imie, nazwisko, plec) VALUES ('Morgan', 'Freeman', 'M');
+INSERT INTO aktorzy (imie, nazwisko, plec) VALUES ('Gwyneth', 'Paltrow', 'F');
+
+INSERT INTO uczelni (nazwa, adres) VALUES ('Uniwersytet Missouri', 'Columbia');
+INSERT INTO uczelni (nazwa, adres) VALUES ('Kolegium miejskie w Los Angeles', '855 N Vermont Ave, Los Angeles');
+INSERT INTO uczelni (nazwa, adres) VALUES ('Uniwersytet Kalifornijski', 'Santa Barbara');
+
+INSERT INTO wyksztalcenia (czy_ma_wyksztalcenie_aktorskie, w_akt, nazwa_uczelni) 
+VALUES ('T', 4, 'Uniwersytet Missouri');
+INSERT INTO wyksztalcenia (czy_ma_wyksztalcenie_aktorskie, w_akt, nazwa_uczelni) 
+VALUES ('T', 5, 'Kolegium miejskie w Los Angeles');
+INSERT INTO wyksztalcenia (czy_ma_wyksztalcenie_aktorskie, w_akt, nazwa_uczelni) 
+VALUES ('T', 6, 'Uniwersytet Kalifornijski');
+
+INSERT INTO film_aktor (fa_id_filmu, fa_id_akt) VALUES (2, 4);
+INSERT INTO film_aktor (fa_id_filmu, fa_id_akt) VALUES (2, 5);
+INSERT INTO film_aktor (fa_id_filmu, fa_id_akt) VALUES (2, 6);
+
+INSERT INTO film_gatunek (fg_id_filmu, fg_nazwa) VALUES (2, 'thriller');
+INSERT INTO film_gatunek (fg_id_filmu, fg_nazwa) VALUES (2, 'detektyw');
+INSERT INTO film_gatunek (fg_id_filmu, fg_nazwa) VALUES (2, 'kryminał');
+INSERT INTO film_gatunek (fg_id_filmu, fg_nazwa) VALUES (2, 'dramat');
+
+INSERT INTO film_producent (fp_id_filmu, fp_id_prod) VALUES (2, 2);
+INSERT INTO film_rezyser (fr_id_filmu, fr_id_rez) VALUES (2, 2);
+INSERT INTO film_scenarzysta (fs_id_filmu, fs_id_scen) VALUES (2, 3);
+
+
+
+
+-- Memento
+INSERT INTO filmy (data_premiery, nazwa, budzet, boxoffice, f_kat) 
+VALUES (TO_DATE('05-09-2000', 'DD-MM-YYYY'), 'Memento', 9000000, 39723096, 'R');
+
+INSERT INTO rezyserzy (imie, nazwisko) VALUES ('Christopher', 'Nolan');
+
+INSERT INTO scenarzysci (imie, nazwisko) VALUES ('Christopher', 'Nolan');
+
+INSERT INTO producenci (imie, nazwisko) VALUES ('Jennifer', 'Todd');
+
+INSERT INTO kompozytorzy (imie, nazwisko, k_id_filmu) VALUES ('David', 'Julian', 3);
+
+INSERT INTO oceny (imdb, rot_tom, metacr) VALUES (8.4, 9.4, 8.8);
+
+INSERT INTO aktorzy (imie, nazwisko, plec) 
+VALUES ('Guy', 'Pearce', 'M');
+INSERT INTO aktorzy (imie, nazwisko, plec) 
+VALUES ('Carrie-Anne', 'Moss', 'F');
+INSERT INTO aktorzy (imie, nazwisko, plec) 
+VALUES ('Joe', 'Pantoliano', 'M');
+
+INSERT INTO uczelni (nazwa, adres) 
+VALUES ('Geelong College', 'Talbot Street, Australia');
+INSERT INTO uczelni (nazwa, adres) 
+VALUES ('Amerykańska Akademia Sztuk Dramatycznych', '1336 N La Brea Ave, Los Angeles');
+INSERT INTO uczelni (nazwa, adres) 
+VALUES ('HB Studio', '120 Bank Street, New York');
+
+INSERT INTO wyksztalcenia (czy_ma_wyksztalcenie_aktorskie, w_akt, nazwa_uczelni) 
+VALUES ('T', 7, 'Geelong College');
+INSERT INTO wyksztalcenia (czy_ma_wyksztalcenie_aktorskie, w_akt, nazwa_uczelni) 
+VALUES ('T', 8, 'Amerykańska Akademia Sztuk Dramatycznych');
+INSERT INTO wyksztalcenia (czy_ma_wyksztalcenie_aktorskie, w_akt, nazwa_uczelni) 
+VALUES ('T', 9, 'HB Studio');
+
+INSERT INTO film_aktor (fa_id_filmu, fa_id_akt) VALUES (3, 7);
+INSERT INTO film_aktor (fa_id_filmu, fa_id_akt) VALUES (3, 8);
+INSERT INTO film_aktor (fa_id_filmu, fa_id_akt) VALUES (3, 9);
+
+INSERT INTO film_gatunek (fg_id_filmu, fg_nazwa) VALUES (3, 'thriller');
+INSERT INTO film_gatunek (fg_id_filmu, fg_nazwa) VALUES (3, 'detektyw');
+INSERT INTO film_gatunek (fg_id_filmu, fg_nazwa) VALUES (3, 'dramat');
+INSERT INTO film_gatunek (fg_id_filmu, fg_nazwa) VALUES (3, 'kryminał');
+
+INSERT INTO film_producent (fp_id_filmu, fp_id_prod) VALUES (3, 3);
+
+INSERT INTO film_rezyser (fr_id_filmu, fr_id_rez) VALUES (3, 3);
+
+INSERT INTO film_scenarzysta (fs_id_filmu, fs_id_scen) VALUES (3, 4);
+
+
+
+
+-- Megamind
+INSERT INTO filmy (data_premiery, nazwa, budzet, boxoffice, f_kat) 
+VALUES (TO_DATE('28-10-2010', 'DD-MM-YYYY'), 'Megamind', 130000000, 321885765, 'PG');
+
+INSERT INTO rezyserzy (imie, nazwisko) VALUES ('Tom', 'McGrath');
+
+INSERT INTO scenarzysci (imie, nazwisko) VALUES ('Brent', 'Simons');
+
+INSERT INTO producenci (imie, nazwisko) VALUES ('Lara', 'Bray');
+
+INSERT INTO kompozytorzy (imie, nazwisko, k_id_filmu) VALUES ('Hans', 'Zimmer', 4);
+
+INSERT INTO oceny (imdb, rot_tom, metacr) VALUES (7.3, 7.2, 7.7);
+
+INSERT INTO aktorzy (imie, nazwisko, plec) 
+VALUES ('Will', 'Ferrell', 'M');
+INSERT INTO aktorzy (imie, nazwisko, plec) 
+VALUES ('Jonah', 'Hill', 'M');
+INSERT INTO aktorzy (imie, nazwisko, plec) 
+VALUES ('Brad', 'Pitt', 'M');
+
+INSERT INTO uczelni (nazwa, adres) 
+VALUES ('Uniwersytet Południowej Kalifornii', 'Los Angeles');
+INSERT INTO uczelni (nazwa, adres) 
+VALUES ('The New School', '66 W 12th Street, New York');
+
+INSERT INTO wyksztalcenia (czy_ma_wyksztalcenie_aktorskie, w_akt, nazwa_uczelni) 
+VALUES ('T', 10, 'Uniwersytet Południowej Kalifornii');
+INSERT INTO wyksztalcenia (czy_ma_wyksztalcenie_aktorskie, w_akt, nazwa_uczelni) 
+VALUES ('T', 11, 'The New School');
+
+INSERT INTO film_aktor (fa_id_filmu, fa_id_akt) VALUES (4, 10);
+INSERT INTO film_aktor (fa_id_filmu, fa_id_akt) VALUES (4, 11);
+INSERT INTO film_aktor (fa_id_filmu, fa_id_akt) VALUES (4, 4);
+
+INSERT INTO film_gatunek (fg_id_filmu, fg_nazwa) VALUES (4, 'kreskówka');
+INSERT INTO film_gatunek (fg_id_filmu, fg_nazwa) VALUES (4, 'komedia');
+INSERT INTO film_gatunek (fg_id_filmu, fg_nazwa) VALUES (4, 'familijny');
+
+INSERT INTO film_producent (fp_id_filmu, fp_id_prod) VALUES (4, 4);
+
+INSERT INTO film_rezyser (fr_id_filmu, fr_id_rez) VALUES (4, 4);
+
+INSERT INTO film_scenarzysta (fs_id_filmu, fs_id_scen) VALUES (4, 5);
+
+
+
+
+-- Aladdin
+INSERT INTO filmy (data_premiery, nazwa, budzet, boxoffice, f_kat) 
+VALUES (TO_DATE('08-05-2019', 'DD-MM-YYYY'), 'Aladdin', 183000000, 1050693953, 'PG');
+
+INSERT INTO rezyserzy (imie, nazwisko) VALUES ('Guy', 'Ritchie');
+
+INSERT INTO scenarzysci (imie, nazwisko) VALUES ('John', 'August');
+
+INSERT INTO producenci (imie, nazwisko) VALUES ('Ivan', 'Atkinson');
+
+INSERT INTO kompozytorzy (imie, nazwisko, k_id_filmu) VALUES ('Alan', 'Menken', 5);
+
+INSERT INTO oceny (imdb, rot_tom, metacr) VALUES (6.9, 9.4, 6.5);
+
+INSERT INTO aktorzy (imie, nazwisko, plec) 
+VALUES ('Mena', 'Massoud', 'M');
+INSERT INTO aktorzy (imie, nazwisko, plec) 
+VALUES ('Naomi', 'Scott', 'F');
+INSERT INTO aktorzy (imie, nazwisko, plec) 
+VALUES ('Will', 'Smith', 'M');
+
+INSERT INTO uczelni (nazwa, adres) 
+VALUES ('Uniwersytet Ryerson', '350 Victoria St, Toronto');
+INSERT INTO uczelni (nazwa, adres) 
+VALUES ('Szkoła Fundacji Davenant', 'Chester Rd, Loughton');
+INSERT INTO uczelni (nazwa, adres) 
+VALUES ('Overbrook High School', '5898 Lancaster Ave, Philadelphia');
+
+INSERT INTO wyksztalcenia (czy_ma_wyksztalcenie_aktorskie, w_akt, nazwa_uczelni) 
+VALUES ('T', 12, 'Uniwersytet Ryerson');
+INSERT INTO wyksztalcenia (czy_ma_wyksztalcenie_aktorskie, w_akt, nazwa_uczelni) 
+VALUES ('T', 13, 'Szkoła Fundacji Davenant');
+INSERT INTO wyksztalcenia (czy_ma_wyksztalcenie_aktorskie, w_akt, nazwa_uczelni) 
+VALUES ('T', 14, 'Overbrook High School');
+
+INSERT INTO film_aktor (fa_id_filmu, fa_id_akt) VALUES (5, 12);
+INSERT INTO film_aktor (fa_id_filmu, fa_id_akt) VALUES (5, 13);
+INSERT INTO film_aktor (fa_id_filmu, fa_id_akt) VALUES (5, 14);
+
+INSERT INTO film_gatunek (fg_id_filmu, fg_nazwa) VALUES (5, 'muzyczny');
+INSERT INTO film_gatunek (fg_id_filmu, fg_nazwa) VALUES (5, 'fantasy');
+INSERT INTO film_gatunek (fg_id_filmu, fg_nazwa) VALUES (5, 'melodramat');
+
+INSERT INTO film_producent (fp_id_filmu, fp_id_prod) VALUES (5, 5);
+
+INSERT INTO film_rezyser (fr_id_filmu, fr_id_rez) VALUES (5, 5);
+
+INSERT INTO film_scenarzysta (fs_id_filmu, fs_id_scen) VALUES (5, 6);
+
+
+
+
+-- Home Alone
+INSERT INTO filmy (data_premiery, nazwa, budzet, boxoffice, f_kat) 
+VALUES (TO_DATE('10-11-1990', 'DD-MM-YYYY'), 'Home Alone', 18000000, 476684675, 'PG');
+
+INSERT INTO rezyserzy (imie, nazwisko) VALUES ('Chris', 'Columbus');
+
+INSERT INTO scenarzysci (imie, nazwisko) VALUES ('John', 'Hughes');
+
+INSERT INTO producenci (imie, nazwisko) VALUES ('Tarquin', 'Gotch');
+
+INSERT INTO kompozytorzy (imie, nazwisko, k_id_filmu) VALUES ('John', 'Williams', 6);
+
+INSERT INTO oceny (imdb, rot_tom, metacr) VALUES (7.7, 8.0, 8.1);
+
+INSERT INTO aktorzy (imie, nazwisko, plec) 
+VALUES ('Macaulay', 'Culkin', 'M');
+INSERT INTO aktorzy (imie, nazwisko, plec) 
+VALUES ('Joe', 'Pesci', 'M');
+INSERT INTO aktorzy (imie, nazwisko, plec) 
+VALUES ('Daniel', 'Stern', 'M');
+
+INSERT INTO uczelni (nazwa, adres) 
+VALUES ('Profesjonalna szkoła dziecięca', '132 West 60th Street, New York');
+INSERT INTO uczelni (nazwa, adres) 
+VALUES ('Liceum w Belleville', '100 Passaic Avenue, Belleville');
+INSERT INTO uczelni (nazwa, adres) 
+VALUES ('Liceum Bethesda-Chevy Chase', '4301 East-West Highway, Bethesda');
+
+INSERT INTO wyksztalcenia (czy_ma_wyksztalcenie_aktorskie, w_akt, nazwa_uczelni) 
+VALUES ('T', 15, 'Profesjonalna szkoła dziecięca');
+INSERT INTO wyksztalcenia (czy_ma_wyksztalcenie_aktorskie, w_akt, nazwa_uczelni) 
+VALUES ('T', 16, 'Liceum w Belleville');
+INSERT INTO wyksztalcenia (czy_ma_wyksztalcenie_aktorskie, w_akt, nazwa_uczelni) 
+VALUES ('T', 17, 'Liceum Bethesda-Chevy Chase');
+
+INSERT INTO film_aktor (fa_id_filmu, fa_id_akt) VALUES (6, 15);
+INSERT INTO film_aktor (fa_id_filmu, fa_id_akt) VALUES (6, 16);
+INSERT INTO film_aktor (fa_id_filmu, fa_id_akt) VALUES (6, 17);
+
+INSERT INTO film_gatunek (fg_id_filmu, fg_nazwa) VALUES (6, 'komedia');
+INSERT INTO film_gatunek (fg_id_filmu, fg_nazwa) VALUES (6, 'familijny');
+
+INSERT INTO film_producent (fp_id_filmu, fp_id_prod) VALUES (6, 6);
+
+INSERT INTO film_rezyser (fr_id_filmu, fr_id_rez) VALUES (6, 6);
+
+INSERT INTO film_scenarzysta (fs_id_filmu, fs_id_scen) VALUES (6, 7);
+
+
+
+-- Zodiac
+INSERT INTO filmy (data_premiery, nazwa, budzet, boxoffice, f_kat) 
+VALUES (TO_DATE('28-02-2007', 'DD-MM-YYYY'), 'Zodiac', 65000000, 84785914, 'R');
+
+INSERT INTO scenarzysci (imie, nazwisko) VALUES ('James', 'Vanderbilt');
+
+INSERT INTO producenci (imie, nazwisko) VALUES ('Sian', 'Chaffin');
+
+INSERT INTO kompozytorzy (imie, nazwisko, k_id_filmu) VALUES ('David', 'Shire', 7);
+
+INSERT INTO oceny (imdb, rot_tom, metacr) VALUES (7.7, 7.7, 8.0);
+
+INSERT INTO aktorzy (imie, nazwisko, plec) 
+VALUES ('Jake', 'Gyllenhaal', 'M');
+INSERT INTO aktorzy (imie, nazwisko, plec) 
+VALUES ('Anthony', 'Edwards', 'M');
+INSERT INTO aktorzy (imie, nazwisko, plec) 
+VALUES ('Robert', 'Downey Junior', 'M');
+
+INSERT INTO uczelni (nazwa, adres) 
+VALUES ('Liceum Muzyczne, Artystyczne i Sztuk Scenicznych LaGuardia', '100 Amsterdam Ave, New York');
+INSERT INTO uczelni (nazwa, adres) 
+VALUES ('Szkoła średnia San Marcos', '4750 Hollister Ave, Santa Barbara');
+INSERT INTO uczelni (nazwa, adres) 
+VALUES ('Szkoła średnia', '601 Pico Blvd, Santa Monica');
+
+INSERT INTO wyksztalcenia (czy_ma_wyksztalcenie_aktorskie, w_akt, nazwa_uczelni) 
+VALUES ('T', 18, 'Liceum Muzyczne, Artystyczne i Sztuk Scenicznych LaGuardia');
+INSERT INTO wyksztalcenia (czy_ma_wyksztalcenie_aktorskie, w_akt, nazwa_uczelni) 
+VALUES ('T', 19, 'Szkoła średnia San Marcos');
+INSERT INTO wyksztalcenia (czy_ma_wyksztalcenie_aktorskie, w_akt, nazwa_uczelni) 
+VALUES ('T', 20, 'Szkoła średnia');
+
+INSERT INTO film_aktor (fa_id_filmu, fa_id_akt) VALUES (7, 18);
+INSERT INTO film_aktor (fa_id_filmu, fa_id_akt) VALUES (7, 19);
+INSERT INTO film_aktor (fa_id_filmu, fa_id_akt) VALUES (7, 20);
+
+INSERT INTO film_gatunek (fg_id_filmu, fg_nazwa) VALUES (7, 'thriller');
+INSERT INTO film_gatunek (fg_id_filmu, fg_nazwa) VALUES (7, 'detektyw');
+INSERT INTO film_gatunek (fg_id_filmu, fg_nazwa) VALUES (7, 'dramat');
+INSERT INTO film_gatunek (fg_id_filmu, fg_nazwa) VALUES (7, 'kryminał');
+
+INSERT INTO film_producent (fp_id_filmu, fp_id_prod) VALUES (7, 7);
+
+INSERT INTO film_rezyser (fr_id_filmu, fr_id_rez) VALUES (7, 2);
+
+INSERT INTO film_scenarzysta (fs_id_filmu, fs_id_scen) VALUES (7, 8);
+
+
+
+-- Fury
+INSERT INTO filmy (data_premiery, nazwa, budzet, boxoffice, f_kat) 
+VALUES (TO_DATE('15-10-2014', 'DD-MM-YYYY'), 'Fury', 68000000, 211817906, 'R');
+
+INSERT INTO rezyserzy (imie, nazwisko) VALUES ('David', 'Eyre');
+
+INSERT INTO scenarzysci (imie, nazwisko) VALUES ('David', 'Eyre');
+
+INSERT INTO producenci (imie, nazwisko) VALUES ('David', 'Eyre');
+
+INSERT INTO kompozytorzy (imie, nazwisko, k_id_filmu) VALUES ('Steven', 'Price', 8);
+
+INSERT INTO oceny (imdb, rot_tom, metacr) VALUES (7.6, 8.4, 7.3);
+
+INSERT INTO aktorzy (imie, nazwisko, plec) 
+VALUES ('Brad', 'Pitt', 'M');
+INSERT INTO aktorzy (imie, nazwisko, plec) 
+VALUES ('Jon', 'Bernthal', 'M');
+INSERT INTO aktorzy (imie, nazwisko, plec) 
+VALUES ('Shia', 'LaBeouf', 'M');
+
+INSERT INTO uczelni (nazwa, adres) 
+VALUES ('Studio aktorskie Stelli Adler', '31 W 27th St 3rd Floor, New York');
+INSERT INTO uczelni (nazwa, adres) 
+VALUES ('Szkoła średnia Alexander Hamilton', '2955 S. Robertson Blvd, Los Angeles');
+
+INSERT INTO wyksztalcenia (czy_ma_wyksztalcenie_aktorskie, w_akt, nazwa_uczelni) 
+VALUES ('T', 21, 'Studio aktorskie Stelli Adler');
+INSERT INTO wyksztalcenia (czy_ma_wyksztalcenie_aktorskie, w_akt, nazwa_uczelni) 
+VALUES ('T', 22, 'Szkoła średnia Alexander Hamilton');
+
+INSERT INTO film_aktor (fa_id_filmu, fa_id_akt) VALUES (8, 3);
+INSERT INTO film_aktor (fa_id_filmu, fa_id_akt) VALUES (8, 21);
+INSERT INTO film_aktor (fa_id_filmu, fa_id_akt) VALUES (8, 22);
+
+INSERT INTO film_gatunek (fg_id_filmu, fg_nazwa) VALUES (8, 'dramat');
+INSERT INTO film_gatunek (fg_id_filmu, fg_nazwa) VALUES (8, 'wojskowy');
+
+INSERT INTO film_producent (fp_id_filmu, fp_id_prod) VALUES (8, 8);
+
+INSERT INTO film_rezyser (fr_id_filmu, fr_id_rez) VALUES (8, 7);
+
+INSERT INTO film_scenarzysta (fs_id_filmu, fs_id_scen) VALUES (8, 9);
+
+
+
+-- Once Upon
+INSERT INTO filmy (data_premiery, nazwa, budzet, boxoffice, f_kat) 
+VALUES (TO_DATE('21-05-2019', 'DD-MM-YYYY'), 'Once Upon a Time in... Hollywood', 90000000, 377426903, 'R');
+
+INSERT INTO rezyserzy (imie, nazwisko) VALUES ('Quentin', 'Tarantino');
+
+INSERT INTO scenarzysci (imie, nazwisko) VALUES ('Quentin', 'Tarantino');
+
+INSERT INTO producenci (imie, nazwisko) VALUES ('Jeffrey', 'Chan');
+
+INSERT INTO kompozytorzy (imie, nazwisko, k_id_filmu) VALUES ('Ennio', 'Morricone', 9);
+
+INSERT INTO oceny (imdb, rot_tom, metacr) VALUES (7.6, 7.0, 7.5);
+
+INSERT INTO aktorzy (imie, nazwisko, plec) 
+VALUES ('Brad', 'Pitt', 'M');
+INSERT INTO aktorzy (imie, nazwisko, plec) 
+VALUES ('Al', 'Pacino', 'M');
+INSERT INTO aktorzy (imie, nazwisko, plec) 
+VALUES ('Leonardo', 'DiCaprio', 'M');
+
+INSERT INTO uczelni (nazwa, adres) 
+VALUES ('Szkoła średnia John Marshall', '3939 Tracy St, Los Angeles');
+
+INSERT INTO wyksztalcenia (czy_ma_wyksztalcenie_aktorskie, w_akt, nazwa_uczelni) 
+VALUES ('T', 23, 'Studio aktorskie');
+INSERT INTO wyksztalcenia (czy_ma_wyksztalcenie_aktorskie, w_akt, nazwa_uczelni) 
+VALUES ('T', 24, 'Szkoła średnia John Marshall');
+
+INSERT INTO film_aktor (fa_id_filmu, fa_id_akt) VALUES (9, 3);
+INSERT INTO film_aktor (fa_id_filmu, fa_id_akt) VALUES (9, 23);
+INSERT INTO film_aktor (fa_id_filmu, fa_id_akt) VALUES (9, 24);
+
+INSERT INTO film_gatunek (fg_id_filmu, fg_nazwa) VALUES (9, 'dramat');
+INSERT INTO film_gatunek (fg_id_filmu, fg_nazwa) VALUES (9, 'komedia');
+
+INSERT INTO film_producent (fp_id_filmu, fp_id_prod) VALUES (9, 9);
+
+INSERT INTO film_rezyser (fr_id_filmu, fr_id_rez) VALUES (9, 8);
+
+INSERT INTO film_scenarzysta (fs_id_filmu, fs_id_scen) VALUES (9, 10);
+
+
+-- Pianist
+INSERT INTO filmy (data_premiery, nazwa, budzet, boxoffice, f_kat) 
+VALUES (TO_DATE('24-05-2002', 'DD-MM-YYYY'), 'The Pianist', 35000000, 120072577, 'R');
+
+INSERT INTO rezyserzy (imie, nazwisko) VALUES ('Roman', 'Polański');
+
+INSERT INTO scenarzysci (imie, nazwisko) VALUES ('Ronald', 'Harwood');
+INSERT INTO scenarzysci (imie, nazwisko) VALUES ('Vladislav', 'Shpilman');
+
+INSERT INTO producenci (imie, nazwisko) VALUES ('Robert', 'Benmussa');
+
+INSERT INTO kompozytorzy (imie, nazwisko, k_id_filmu) VALUES ('Wojciech', 'Kilar', 10);
+
+INSERT INTO oceny (imdb, rot_tom, metacr) VALUES (8.5, 9.6, 8.7);
+
+INSERT INTO aktorzy (imie, nazwisko, plec) 
+VALUES ('Adrien', 'Brody', 'M');
+INSERT INTO aktorzy (imie, nazwisko, plec) 
+VALUES ('Emilia', 'Fox', 'F');
+INSERT INTO aktorzy (imie, nazwisko, plec) 
+VALUES ('Ed', 'Stoppard', 'M');
+
+INSERT INTO uczelni (nazwa, adres) 
+VALUES ('Liceum Muzyczne, Artystyczne i Sztuk Scenicznych im. Fiorella H. LaGuardii', '100 Amsterdam Ave, New York');
+INSERT INTO uczelni (nazwa, adres) 
+VALUES ('Uniwersytet Oksfordzki', 'Manor Rd');
+INSERT INTO uczelni (nazwa, adres) 
+VALUES ('Uniwersytet w Edynburgu', 'Old College, South Bridge');
+
+INSERT INTO wyksztalcenia (czy_ma_wyksztalcenie_aktorskie, w_akt, nazwa_uczelni) 
+VALUES ('T', 25, 'Liceum Muzyczne, Artystyczne i Sztuk Scenicznych im. Fiorella H. LaGuardii');
+INSERT INTO wyksztalcenia (czy_ma_wyksztalcenie_aktorskie, w_akt, nazwa_uczelni) 
+VALUES ('T', 26, 'Uniwersytet Oksfordzki');
+INSERT INTO wyksztalcenia (czy_ma_wyksztalcenie_aktorskie, w_akt, nazwa_uczelni) 
+VALUES ('T', 27, 'Uniwersytet w Edynburgu');
+
+INSERT INTO film_aktor (fa_id_filmu, fa_id_akt) VALUES (10, 25);
+INSERT INTO film_aktor (fa_id_filmu, fa_id_akt) VALUES (10, 26);
+INSERT INTO film_aktor (fa_id_filmu, fa_id_akt) VALUES (10, 27);
+
+INSERT INTO film_gatunek (fg_id_filmu, fg_nazwa) VALUES (10, 'dramat');
+INSERT INTO film_gatunek (fg_id_filmu, fg_nazwa) VALUES (10, 'wojskowy');
+INSERT INTO film_gatunek (fg_id_filmu, fg_nazwa) VALUES (10, 'biografia');
+
+INSERT INTO film_producent (fp_id_filmu, fp_id_prod) VALUES (10, 10);
+
+INSERT INTO film_rezyser (fr_id_filmu, fr_id_rez) VALUES (10, 9);
+
+INSERT INTO film_scenarzysta (fs_id_filmu, fs_id_scen) VALUES (10, 11);
+INSERT INTO film_scenarzysta (fs_id_filmu, fs_id_scen) VALUES (10, 12);
